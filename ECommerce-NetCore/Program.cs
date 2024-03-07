@@ -10,7 +10,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddDbContext<ECommerceNetCoreDbContext>(options =>
 {
-    options.UseSqlServer("Server=localhost,1434;Database=ECommerceData;User Id=sa;Password=Polyglot#3000;TrustServerCertificate=True");
+    options.UseSqlServer("Server=localhost,1434;Database=ECommerceData;User Id=sa;Password=adminAppDist2024#;TrustServerCertificate=True");
     options.LogTo(Console.WriteLine, LogLevel.Information).EnableSensitiveDataLogging();
 });
 
