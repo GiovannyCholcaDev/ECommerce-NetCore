@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ECommerce_NetCore.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class CreationEntitiesSQL : Migration
+    public partial class CreateEntidadesBDD : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

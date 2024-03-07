@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ECommerce_NetCore.DataAccess.Migrations
 {
     [DbContext(typeof(ECommerceNetCoreDbContext))]
-    [Migration("20240305022731_CreationEntitiesSQL")]
-    partial class CreationEntitiesSQL
+    [Migration("20240307043829_CreateEntidadesBDD")]
+    partial class CreateEntidadesBDD
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

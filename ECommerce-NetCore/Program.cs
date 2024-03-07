@@ -10,10 +10,9 @@ builder.Services.AddControllers();
 
 builder.Services.AddDbContext<ECommerceNetCoreDbContext>(options =>
 {
-    options.UseSqlServer("Server=localhost;Database=ECommerceData;Integrated Security=True;TrustServerCertificate=True");
+    options.UseSqlServer("Server=localhost,1434;Database=ECommerceData;User Id=sa;Password=Polyglot#3000;TrustServerCertificate=True");
     options.LogTo(Console.WriteLine, LogLevel.Information).EnableSensitiveDataLogging();
 });
-
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
