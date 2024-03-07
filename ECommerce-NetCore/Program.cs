@@ -1,4 +1,5 @@
 using ECommerce_NetCore.DataAccess;
+using ECommerce_NetCore.Entities;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,10 @@ builder.Services.AddDbContext<ECommerceNetCoreDbContext>(options =>
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
+builder.Services.AddSingleton<List<Category>>(new List<Category>());
+
 
 var app = builder.Build();
 
