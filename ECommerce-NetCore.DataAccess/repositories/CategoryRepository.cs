@@ -1,4 +1,6 @@
-﻿using ECommerce_NetCore.Entities;
+﻿using Azure;
+using ECommerce_NetCore.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,9 +21,9 @@ namespace ECommerce_NetCore.DataAccess.repositories
             return await Insert(entity);
         }
 
-        public Task DeleteAsync(string id)
+        public async Task DeleteAsync(string id)
         {
-            throw new NotImplementedException();
+            await DeleteAsyc(id);
         }
 
         public async Task<Category> GetItemAsync(string id)
@@ -29,14 +31,28 @@ namespace ECommerce_NetCore.DataAccess.repositories
             return await Select(id);
         }
 
-        public Task<(ICollection<Category> coleccion, int total)> ListAsync()
+        public async Task<(ICollection<Category> categoryLista, int total)> ListAsync()
         {
-            throw new NotImplementedException();
+            var categoryLista = await SelectAll();
+            int total = 0;
+            if (categoryLista != null)
+            {
+
+                total = categoryLista.Count;
+            }
+
+            return (categoryLista, total);
         }
 
-        public Task UpdateAsync(Category entity)
+        public async Task UpdateAsync(Category entity)
         {
-            throw new NotImplementedException();
+            await UpdateEntity(entity);
+        }
+
+
+        public async Task DeleteAsyc(string id)
+        {
+            await DeleteEntity(id);
         }
     }
 }

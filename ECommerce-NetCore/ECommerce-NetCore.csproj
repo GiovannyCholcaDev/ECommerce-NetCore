@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ECommerce-NetCore.DataAccess\ECommerce-NetCore.DataAccess.csproj" />
+    <ProjectReference Include="..\ECommerce-NetCore.Services\ECommerce-NetCore.Services.csproj" />
   </ItemGroup>
 
 </Project>

@@ -34,6 +34,14 @@ namespace ECommerce_NetCore.DataAccess
         }
 
 
+        public async Task<ICollection<TEntityBase>> SelectAll()
+        {
+            var entities = await _context.Set<TEntityBase>().ToListAsync();
+            if (entities == null) return null!;
+            return entities;
+        }
+
+
         public async Task UpdateEntity(TEntityBase entity)
         {
             _context.Set<TEntityBase>().Attach(entity);
@@ -42,7 +50,7 @@ namespace ECommerce_NetCore.DataAccess
             await _context.SaveChangesAsync();
         }
 
-        public async Task Delete(string id)
+        public async Task DeleteEntity(string id)
         {
             var entity = await _context.Set<TEntityBase>().SingleOrDefaultAsync(p => p.Id == id);
 

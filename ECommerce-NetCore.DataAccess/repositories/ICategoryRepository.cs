@@ -14,7 +14,7 @@ namespace ECommerce_NetCore.DataAccess.repositories
 
         Task<string> CreateAsync(Category entity);
 
-        Task<(ICollection<Category> coleccion, int total)> ListAsync();
+        Task<(ICollection<Category> categoryLista, int total)> ListAsync();
 
         Task UpdateAsync(Category entity);
 

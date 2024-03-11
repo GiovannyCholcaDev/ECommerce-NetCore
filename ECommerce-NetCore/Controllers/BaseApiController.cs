@@ -15,10 +15,13 @@ namespace ECommerce_NetCore.Controllers
             _caterogyListServicio = caterogyListServicio;
         }
 
-        /*[HttpGet]
+       /* [HttpGet]
         public List<Category> GetCategory()
         {
-          Category category = new Category();
+
+            List<Category> caterogyListServicio = new List<Category>();
+            
+            Category category = new Category();
             category.Id = "1";//Guid.NewGuid().ToString();
             category.Name = "Categoria 1";
 
@@ -35,7 +38,8 @@ namespace ECommerce_NetCore.Controllers
             caterogyListServicio.Add(category);
             caterogyListServicio.Add(category2);
             caterogyListServicio.Add(category3);
-            return caterogyList;
+
+            return caterogyListServicio;
         }*/
 
         [HttpGet]
