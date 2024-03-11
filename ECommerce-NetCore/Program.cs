@@ -16,9 +16,10 @@ builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
 builder.Services.AddTransient<ICategoryService, CategoryService>();
 
 
+var conSqlServer = builder.Configuration.GetConnectionString("BDDSqlServer")!;
 builder.Services.AddDbContext<ECommerceNetCoreDbContext>(options =>
 {
-    options.UseSqlServer("Server=localhost,1434;Database=ECommerceData;User Id=sa;Password=Polyglot#3000;TrustServerCertificate=True");
+    options.UseSqlServer(conSqlServer);
     options.LogTo(Console.WriteLine, LogLevel.Information).EnableSensitiveDataLogging();
 });
 

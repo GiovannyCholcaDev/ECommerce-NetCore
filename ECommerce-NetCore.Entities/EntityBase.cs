@@ -5,6 +5,7 @@ namespace ECommerce_NetCore.Entities
 {
     public class EntityBase
     {
+        //    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         [StringLength(36)]
         public string Id { get; set; }

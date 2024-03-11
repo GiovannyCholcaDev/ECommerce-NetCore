@@ -23,7 +23,7 @@ namespace ECommerce_NetCore.DataAccess.repositories
 
         public async Task DeleteAsync(string id)
         {
-            await DeleteAsyc(id);
+            await DeleteEntity(id);
         }
 
         public async Task<Category> GetItemAsync(string id)
@@ -49,10 +49,5 @@ namespace ECommerce_NetCore.DataAccess.repositories
             await UpdateEntity(entity);
         }
 
-
-        public async Task DeleteAsyc(string id)
-        {
-            await DeleteEntity(id);
-        }
     }
 }

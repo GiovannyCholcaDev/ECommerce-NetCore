@@ -1,4 +1,5 @@
 ﻿using ECommerce_NetCore.Entities;
+using ECommerce_NetCore.Entities.Segurity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -47,6 +48,8 @@ namespace ECommerce_NetCore.DataAccess
 
         public DbSet<SaleDetail> SaleDetails { get; set; }
 
+
+        public DbSet<Usuario> Usuarios { get; set; }
 
     }
 }
