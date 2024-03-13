@@ -10,7 +10,7 @@ namespace ECommerce_NetCore.Controllers
     [Route("api/[controller]")]
     public class ProductsController : Controller
     {
-
+        //INYECCION DE DEPENDENCIA DE SERVICIO
         private readonly IProductService _service;
 
         public ProductsController(IProductService service)

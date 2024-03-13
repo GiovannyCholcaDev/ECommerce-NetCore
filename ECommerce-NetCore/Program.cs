@@ -12,13 +12,19 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 
+//INYECCION DE DEPENDENCIAS PARA LOS Repository y Service
+//se pone <NOMBRE_INTERFAS, NOMBRE_CLASE_IMPLEMENTACION>
 builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
 builder.Services.AddTransient<ICategoryService, CategoryService>();
 
 builder.Services.AddTransient<IProductRepository, ProductRepository>();
 builder.Services.AddTransient<IProductService, ProductService>();
 
+builder.Services.AddSingleton<List<Category>>(new List<Category>());
 
+
+//LA CADENA DE CONEXION ESTA EN EL appsettings.json
+//CON EL SIGUIENTA LINEA OBTENEMOS LA CADENA DE CONEXIONA SQL SERVER
 var conSqlServer = builder.Configuration.GetConnectionString("BDDSqlServer")!;
 builder.Services.AddDbContext<ECommerceNetCoreDbContext>(options =>
 {
@@ -30,10 +36,6 @@ builder.Services.AddDbContext<ECommerceNetCoreDbContext>(options =>
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-
-builder.Services.AddSingleton<List<Category>>(new List<Category>());
-
 
 var app = builder.Build();
 
