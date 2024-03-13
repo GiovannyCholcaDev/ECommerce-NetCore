@@ -15,6 +15,9 @@ builder.Services.AddControllers();
 builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
 builder.Services.AddTransient<ICategoryService, CategoryService>();
 
+builder.Services.AddTransient<IProductRepository, ProductRepository>();
+builder.Services.AddTransient<IProductService, ProductService>();
+
 
 var conSqlServer = builder.Configuration.GetConnectionString("BDDSqlServer")!;
 builder.Services.AddDbContext<ECommerceNetCoreDbContext>(options =>

@@ -107,7 +107,9 @@ namespace ECommerce_NetCore.Services.Implementations
                 {
                     Id = p.Id,
                     Name = p.Name,
-                    Description = p.Description
+                    Description = p.Description,
+                    Url = p.ProductUrl
+
                 }).ToList();
 
                 response.TotalPages = result.total;
@@ -132,6 +134,10 @@ namespace ECommerce_NetCore.Services.Implementations
                 producto.Id = id;
                 producto.Name = request.Name;
                 producto.Description = request.Description;
+                producto.CategoryId = request.CategoryId;
+                producto.UnitPrice = request.UnitPrice;
+                producto.ProductUrl = request.FileName;
+                producto.Active = request.Active;
 
                 await _repository.UpdateAsync(producto);
 

@@ -1,5 +1,6 @@
 ﻿using ECommerce_NetCore.Dto.Request;
 using ECommerce_NetCore.Services.Interfaces;
+using ECommerceAPI.Dto.Request;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerce_NetCore.Controllers
@@ -10,23 +11,23 @@ namespace ECommerce_NetCore.Controllers
     public class ProductsController : Controller
     {
 
-        private readonly ICategoryService _service;
+        private readonly IProductService _service;
 
-        public ProductsController(ICategoryService service)
+        public ProductsController(IProductService service)
         {
             _service = service;
         }
 
 
         [HttpGet]
-        public async Task<IActionResult> GetCategories()
+        public async Task<IActionResult> GetProducts()
         {
             return Ok(await _service.ListAsync());
         }
 
         [HttpGet]
         [Route("{id}")]
-        public async Task<IActionResult> GetCategories(string id)
+        public async Task<IActionResult> GetProduct(string id)
         {
             var response = await _service.GetAsync(id);
 
@@ -40,11 +41,11 @@ namespace ECommerce_NetCore.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> PostCategories([FromBody] CategoryRequest request)
+        public async Task<IActionResult> PostProducts([FromBody] ProductRequest request)
         {
             var response = await _service.CreateAsync(request);
 
-            return CreatedAtAction("GetCategories", new
+            return CreatedAtAction("GetProducts", new
             {
                 id = response.Result
             }, response);
@@ -53,14 +54,14 @@ namespace ECommerce_NetCore.Controllers
 
         [HttpPut]
         [Route("{id}")]
-        public async Task<IActionResult> PutCategories(string id, [FromBody] CategoryRequest request)
+        public async Task<IActionResult> PutProducts(string id, [FromBody] ProductRequest request)
         {
             return Ok(await _service.UpdateAsync(id, request));
         }
 
         [HttpDelete]
         [Route("{id}")]
-        public async Task<IActionResult> DeleteCategories(string id)
+        public async Task<IActionResult> DeleteProducts(string id)
         {
             return Ok(await _service.DeleteAsync(id));
         }
